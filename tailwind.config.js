@@ -15,10 +15,10 @@ module.exports = {
           300: '#93c5fd',
           400: '#60a5fa',
           500: '#3b82f6',
-          600: '#2563eb',
+          600: '#2563eb', // Azul principal FELADE
           700: '#1d4ed8',
           800: '#1e40af',
-          900: '#1e3a8a',
+          900: '#1e3a8a', // Azul oscuro FELADE
           950: '#172554',
         },
         secondary: {
@@ -27,13 +27,20 @@ module.exports = {
           200: '#fef08a',
           300: '#fde047',
           400: '#facc15',
-          500: '#eab308',
+          500: '#eab308', // Dorado FELADE
           600: '#ca8a04',
           700: '#a16207',
           800: '#854d0e',
           900: '#713f12',
           950: '#422006',
         },
+        // Colores adicionales para certificaciones
+        certification: {
+          ciplad: '#2563eb', // Azul
+          cimar: '#059669', // Verde
+          cibca: '#7c3aed', // Morado
+          wcf: '#dc2626', // Rojo
+        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
