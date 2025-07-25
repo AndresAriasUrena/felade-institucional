@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata = {
   title: 'Sobre Nosotros - FELADE',
-  description: 'Conoce la historia, misión y visión de FELADE - Federación Latinoamericana de Estudios en Administración y Derecho Económico',
+  description: 'Conoce la historia, misión y visión de FELADE - Fundación para el Estudio del Lavado de Activos y Delitos',
 }
 
 export default function SobreNosotros() {

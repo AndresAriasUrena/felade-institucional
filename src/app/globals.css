@@ -1,18 +1,25 @@
 @import "tailwindcss";
 
-/* FELADE Custom CSS Variables - Actualizado */
+/* FELADE Custom CSS Variables - Tonos corregidos */
 :root {
-  /* Colores principales mejorados */
+  /* Colores principales con tonos más suaves */
   --felade-primary: #1e3a8a;
+  --felade-primary-light: #3b82f6;
   --felade-primary-dark: #172554;
-  --felade-secondary: #eab308;
-  --felade-secondary-dark: #ca8a04;
+  --felade-secondary: #f59e0b;
+  --felade-secondary-dark: #d97706;
   --felade-neutral: #64748b;
   
-  /* Gradientes específicos */
-  --felade-gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
-  --felade-gradient-secondary: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
-  --felade-gradient-hero: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #172554 100%);
+  /* Gradientes específicos más suaves */
+  --felade-gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  --felade-gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --felade-gradient-hero: linear-gradient(135deg, #1e40af 0%, #1d4ed8 60%, #172554 100%);
+  
+  /* Gradientes por certificación */
+  --felade-gradient-ciplad: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --felade-gradient-cimar: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+  --felade-gradient-cibca: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  --felade-gradient-wcf: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   
   /* Typography mejorada */
   --font-display: 'Montserrat', 'Inter', system-ui, sans-serif;
@@ -20,26 +27,18 @@
   --font-serif: 'Merriweather', Georgia, serif;
   
   /* Spacing y dimensiones */
-  --section-padding: 6rem 0;
+  --section-padding: 5rem 0;
   --container-padding: 1rem;
-  --border-radius-lg: 1.5rem;
-  --border-radius-xl: 2rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
   
-  /* Sombras personalizadas */
-  --shadow-felade: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-felade-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  /* Sombras más suaves */
+  --shadow-felade: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-felade-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   
   /* Animaciones */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-/* Dark mode variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --felade-primary: #3b82f6;
-    --felade-primary-dark: #1d4ed8;
-  }
 }
 
 /* Base Styles mejorados */
@@ -49,13 +48,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Para navegación sticky */
+  scroll-padding-top: 80px;
 }
 
 body {
   font-family: var(--font-body);
   line-height: 1.6;
-  color: #1f2937;
+  color: #374151;
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -74,31 +73,31 @@ body {
   font-family: var(--font-serif);
 }
 
-/* Títulos con mejor jerarquía */
+/* Títulos con mejor jerarquía y tonos suaves - SIN color forzado */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.25;
-  color: #111827;
+  /* Removed color override to let Tailwind classes work properly */
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h1 { font-size: clamp(2.25rem, 4vw, 3.5rem); }
+h2 { font-size: clamp(1.875rem, 3.5vw, 2.75rem); }
+h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
 
-/* Custom Scrollbar mejorado */
+/* Custom Scrollbar más sutil */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: #f8fafc;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #cbd5e1, #94a3b8);
-  border-radius: 4px;
+  border-radius: 3px;
   transition: var(--transition-smooth);
 }
 
@@ -110,25 +109,14 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .focus-visible:focus-visible {
   outline: 2px solid var(--felade-secondary);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.1);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
 }
 
-/* Animaciones mejoradas */
+/* Animaciones más suaves */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -139,18 +127,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -161,7 +138,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -174,46 +151,25 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(234, 179, 8, 0.6);
+    transform: translateY(-10px);
   }
 }
 
 /* Animation Classes */
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.animate-fade-in-down {
-  animation: fadeInDown 0.8s ease-out;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.8s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.8s ease-out;
+  animation: slideInLeft 0.6s ease-out;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.6s ease-out;
+  animation: scaleIn 0.5s ease-out;
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 /* Utility Classes mejoradas */
@@ -247,39 +203,39 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   padding: var(--section-padding);
 }
 
-/* Glass morphism effect */
+/* Glass morphism effect más sutil */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius-lg);
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-lg);
 }
 
-/* Card hover effects */
+/* Card hover effects más suaves */
 .card-hover {
   transition: var(--transition-smooth);
   cursor: pointer;
 }
 
 .card-hover:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-felade-lg);
 }
 
-/* Button hover effects personalizados */
+/* Button hover effects personalizados más sutiles */
 .btn-felade {
   background: var(--felade-gradient-primary);
   color: white;
   border: none;
   border-radius: var(--border-radius-lg);
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
   transition: var(--transition-smooth);
   position: relative;
@@ -293,7 +249,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.5s;
 }
 
@@ -302,9 +258,28 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 }
 
 .btn-felade:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-felade-lg);
 }
+
+/* Hero specific styles */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(29, 78, 216, 0.7) 100%);
+}
+
+.hero-overlay.cimar {
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.8) 0%, rgba(14, 116, 144, 0.7) 100%);
+}
+
+.hero-overlay.cibca {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(91, 33, 182, 0.7) 100%);
+}
+
+.hero-overlay.wcf {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(185, 28, 28, 0.7) 100%);
+}
+
+/* Hero title classes - ahora Tailwind puede funcionar correctamente */
 
 /* Responsive typography */
 @media (min-width: 640px) {
@@ -316,39 +291,6 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 @media (min-width: 1024px) {
   .section-container {
     padding: 0 2rem;
-  }
-}
-
-/* Loading states */
-.loading-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .no-print {
-    display: none !important;
-  }
-  
-  body {
-    background: white !important;
-    color: black !important;
-  }
-  
-  * {
-    box-shadow: none !important;
-    text-shadow: none !important;
   }
 }
 
@@ -364,30 +306,20 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   }
 }
 
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  .gradient-text {
-    background: none;
-    -webkit-text-fill-color: initial;
-    color: #000;
-  }
-}
-
-/* Header fijo con fondo sólido */
+/* Header fijo con gradiente personalizado */
 .felade-header {
-  background-color: #1e3a8a !important;
-  background: #1e3a8a !important;
+  background: linear-gradient(135deg, #01174D 0%, #1e3a8a 100%) !important;
   opacity: 1 !important;
   backdrop-filter: none !important;
 }
 
-/* Selección de texto personalizada */
+/* Selección de texto personalizada con tonos suaves */
 ::selection {
-  background-color: rgba(234, 179, 8, 0.3);
+  background-color: rgba(245, 158, 11, 0.2);
   color: #1e3a8a;
 }
 
 ::-moz-selection {
-  background-color: rgba(234, 179, 8, 0.3);
+  background-color: rgba(245, 158, 11, 0.2);
   color: #1e3a8a;
 }

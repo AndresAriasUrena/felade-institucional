@@ -45,9 +45,7 @@ const Footer = () => {
               <div>
                 <h3 className="text-xl font-display font-bold">FELADE</h3>
                 <p className="text-primary-200 text-sm leading-tight">
-                  Federación Latinoamericana de<br />
-                  Estudios en Administración y<br />
-                  Derecho Económico
+                  Fundación para el Estudio del Lavado de Activos y Delitos
                 </p>
               </div>
             </div>

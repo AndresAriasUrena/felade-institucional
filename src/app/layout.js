@@ -20,7 +20,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata = {
-  title: "FELADE - Federación Latinoamericana de Estudios en Administración y Derecho Económico",
+  title: "FELADE - Fundación para el Estudio del Lavado de Activos y Delitos",
   description: "FELADE ofrece certificaciones internacionales CIPLAD, CIMAR y CIBCA para el desarrollo profesional en Latinoamérica. Educación superior de calidad con reconocimiento internacional.",
   keywords: "FELADE, certificaciones, CIPLAD, CIMAR, CIBCA, educación, Latinoamérica, administración, derecho económico",
   authors: [{ name: "FELADE" }],

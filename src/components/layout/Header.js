@@ -41,9 +41,9 @@ const Header = () => {
     <header 
       className="felade-header shadow-xl sticky top-0 z-50" 
       style={{
-        backgroundColor: '#1e3a8a',
-        background: '#1e3a8a',
-        opacity: 1
+        background: 'linear-gradient(135deg, #01174D 0%, #1e3a8a 100%)',
+        opacity: 1,
+        zIndex: 9999 // Z-index más alto que el hero
       }}
     >
       <div className="container mx-auto px-4">
@@ -82,6 +82,7 @@ const Header = () => {
                       className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
+                      style={{ zIndex: 10000 }} // Z-index aún más alto para dropdown
                       onMouseEnter={() => setIsServicesOpen(true)}
                       onMouseLeave={() => setIsServicesOpen(false)}
                     >
@@ -110,7 +111,7 @@ const Header = () => {
             {/* CTA Button */}
             <Link
               href="/certificaciones"
-              className="bg-secondary-500 text-primary-900 px-5 py-2 rounded-lg hover:bg-secondary-600 transition-colors font-bold"
+              className="bg-secondary-500 text-white px-5 py-2 rounded-lg hover:bg-secondary-600 transition-colors font-bold"
             >
               Certificarse Ahora
             </Link>
@@ -120,6 +121,7 @@ const Header = () => {
           <button
             onClick={toggleMenu}
             className="lg:hidden p-2 text-gray-200 hover:text-secondary-400 transition-colors"
+            style={{ zIndex: 10001 }} // Z-index alto para mobile button
           >
             {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
@@ -174,7 +176,7 @@ const Header = () => {
             <Link
               href="/certificaciones"
               onClick={closeMenu}
-              className="block mx-4 mt-4 bg-secondary-500 text-primary-900 text-center px-6 py-3 rounded-lg hover:bg-secondary-600 transition-colors font-bold"
+              className="block mx-4 mt-4 bg-secondary-500 text-white text-center px-6 py-3 rounded-lg hover:bg-secondary-600 transition-colors font-bold"
             >
               Certificarse Ahora
             </Link>

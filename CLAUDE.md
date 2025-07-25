@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the FELADE institutional website, built with Next.js 15.4.3 and React 19. FELADE (Federación Latinoamericana de Estudios en Administración y Derecho Económico) is an organization specializing in AML/FT (Anti-Money Laundering/Financing of Terrorism) training and compliance certifications across Latin America.
+This is the FELADE institutional website, built with Next.js 15.4.3 and React 19. FELADE (Fundación para el Estudio del Lavado de Activos y Delitos) is an organization specializing in AML/FT (Anti-Money Laundering/Financing of Terrorism) training and compliance certifications across Latin America.
 
 ## Development Commands
 

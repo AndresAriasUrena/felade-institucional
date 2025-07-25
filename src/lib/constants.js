@@ -226,7 +226,7 @@ export const FOOTER_LINKS = {
 // Información de la empresa
 export const COMPANY_INFO = {
   name: 'FELADE',
-  fullName: 'Federación Latinoamericana de Estudios en Administración y Derecho Económico',
+  fullName: 'Fundación para el Estudio del Lavado de Activos y Delitos',
   founded: '2005',
   description: 'FELADE es una organización especializada en capacitación anti lavado de activos y financiamiento del terrorismo, con más de 20 años de experiencia brindando soluciones integrales a nivel internacional',
   mission: 'Brindar capacitación especializada de alta calidad en temas de cumplimiento, anti lavado de activos y financiamiento del terrorismo, contribuyendo al fortalecimiento del sistema financiero internacional',
