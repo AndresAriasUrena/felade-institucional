@@ -38,31 +38,38 @@ const Header = () => {
   ]
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header 
+      className="felade-header shadow-xl sticky top-0 z-50" 
+      style={{
+        backgroundColor: '#1e3a8a',
+        background: '#1e3a8a',
+        opacity: 1
+      }}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-secondary-500 rounded-lg flex items-center justify-center">
+              <span className="text-primary-900 font-bold text-lg">F</span>
             </div>
             <div>
-              <h1 className="text-2xl font-display font-bold text-primary-900">FELADE</h1>
-              <p className="text-xs text-gray-600 leading-tight">
-                Federación Latinoamericana de<br />
-                Estudios en Administración y Derecho Económico
+              <h1 className="text-xl font-display font-bold text-white">FELADE</h1>
+              <p className="text-xs text-gray-300 leading-tight">
+                Fundación para el Estudio del<br />
+                Lavado de Activos y Delitos
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navigationItems.map((item) => (
               <div key={item.name} className="relative group">
                 {item.hasDropdown ? (
                   <div className="relative">
                     <button
-                      className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                      className="flex items-center space-x-1 text-gray-200 hover:text-secondary-400 transition-colors font-medium"
                       onMouseEnter={() => setIsServicesOpen(true)}
                       onMouseLeave={() => setIsServicesOpen(false)}
                     >
@@ -92,7 +99,7 @@ const Header = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                    className="text-gray-200 hover:text-secondary-400 transition-colors font-medium"
                   >
                     {item.name}
                   </Link>
@@ -103,7 +110,7 @@ const Header = () => {
             {/* CTA Button */}
             <Link
               href="/certificaciones"
-              className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium"
+              className="bg-secondary-500 text-primary-900 px-5 py-2 rounded-lg hover:bg-secondary-600 transition-colors font-bold"
             >
               Certificarse Ahora
             </Link>
@@ -112,9 +119,9 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors"
+            className="lg:hidden p-2 text-gray-200 hover:text-secondary-400 transition-colors"
           >
-            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
         </div>
 
@@ -122,14 +129,14 @@ const Header = () => {
         <nav className={`lg:hidden transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'max-h-screen opacity-100 pb-4' : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
-          <div className="border-t border-gray-200 pt-4 space-y-2">
+          <div className="border-t border-primary-700 pt-4 space-y-2">
             {navigationItems.map((item) => (
               <div key={item.name}>
                 {item.hasDropdown ? (
                   <div>
                     <button
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                      className="w-full flex items-center justify-between px-4 py-2 text-gray-200 hover:bg-primary-800 rounded-lg transition-colors"
                     >
                       <span>{item.name}</span>
                       <FaChevronDown className={`text-xs transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -144,7 +151,7 @@ const Header = () => {
                           key={dropdownItem.name}
                           href={dropdownItem.href}
                           onClick={closeMenu}
-                          className="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors"
+                          className="block px-4 py-2 text-gray-300 hover:bg-primary-800 hover:text-secondary-400 rounded-lg transition-colors"
                         >
                           {dropdownItem.name}
                         </Link>
@@ -155,7 +162,7 @@ const Header = () => {
                   <Link
                     href={item.href}
                     onClick={closeMenu}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors"
+                    className="block px-4 py-2 text-gray-200 hover:bg-primary-800 hover:text-secondary-400 rounded-lg transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -167,7 +174,7 @@ const Header = () => {
             <Link
               href="/certificaciones"
               onClick={closeMenu}
-              className="block mx-4 mt-4 bg-primary-600 text-white text-center px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-medium"
+              className="block mx-4 mt-4 bg-secondary-500 text-primary-900 text-center px-6 py-3 rounded-lg hover:bg-secondary-600 transition-colors font-bold"
             >
               Certificarse Ahora
             </Link>

@@ -1,43 +1,45 @@
+// src/components/sections/CertificationCards.js - Diseño más cercano al original
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import Container from '@/components/ui/Container'
 import { CERTIFICATIONS } from '@/lib/constants'
-import { FaClock, FaGraduationCap, FaStar, FaUsers, FaCheckCircle, FaCreditCard, FaAward } from 'react-icons/fa'
+import { FaClock, FaGraduationCap, FaStar, FaUsers, FaCheckCircle, FaDollarSign } from 'react-icons/fa'
 
 const CertificationCards = () => {
-  const certifications = CERTIFICATIONS.filter(cert => cert.id !== 'wcf') // Exclude WCF from cards
+  // Solo mostrar las primeras 3 certificaciones principales
+  const mainCertifications = CERTIFICATIONS.slice(0, 3);
 
-  const getCertificationConfig = (id) => {
-    const configs = {
+  const getCertificationTheme = (id) => {
+    const themes = {
       ciplad: {
-        color: 'blue',
-        gradient: 'from-blue-600 to-blue-700',
-        bgGradient: 'from-blue-50 to-blue-100',
+        gradient: 'from-blue-600 to-blue-800',
+        bg: 'bg-blue-50',
+        border: 'border-blue-200',
+        text: 'text-blue-900',
+        accent: 'bg-blue-600',
         icon: '🛡️',
-        accentColor: 'text-blue-600',
-        borderColor: 'border-blue-200',
-        buttonClass: 'bg-blue-600 hover:bg-blue-700 shadow-blue-200'
+        color: 'blue'
       },
       cimar: {
-        color: 'emerald',
-        gradient: 'from-emerald-600 to-emerald-700',
-        bgGradient: 'from-emerald-50 to-emerald-100',
+        gradient: 'from-green-600 to-green-800', 
+        bg: 'bg-green-50',
+        border: 'border-green-200',
+        text: 'text-green-900',
+        accent: 'bg-green-600',
         icon: '📊',
-        accentColor: 'text-emerald-600',
-        borderColor: 'border-emerald-200',
-        buttonClass: 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-200'
+        color: 'green'
       },
       cibca: {
-        color: 'purple',
-        gradient: 'from-purple-600 to-purple-700',
-        bgGradient: 'from-purple-50 to-purple-100',
+        gradient: 'from-purple-600 to-purple-800',
+        bg: 'bg-purple-50',
+        border: 'border-purple-200', 
+        text: 'text-purple-900',
+        accent: 'bg-purple-600',
         icon: '₿',
-        accentColor: 'text-purple-600',
-        borderColor: 'border-purple-200',
-        buttonClass: 'bg-purple-600 hover:bg-purple-700 shadow-purple-200'
+        color: 'purple'
       }
     }
-    return configs[id] || configs.ciplad
+    return themes[id] || themes.ciplad;
   }
 
   return (
@@ -45,188 +47,219 @@ const CertificationCards = () => {
       <Container>
         {/* Section Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-primary-100 rounded-full px-6 py-3 mb-6">
-            <FaAward className="text-primary-600 mr-2" />
-            <span className="text-primary-600 font-bold text-sm uppercase tracking-wide">Certificaciones Internacionales</span>
+          <div className="inline-flex items-center bg-primary-50 rounded-full px-6 py-3 mb-6">
+            <FaStar className="text-primary-600 mr-2" />
+            <span className="text-primary-600 font-bold text-sm uppercase tracking-wide">
+              Certificaciones Destacadas
+            </span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-            Impulsa tu <span className="text-primary-600">Carrera Profesional</span>
+          <h2 className="text-5xl lg:text-6xl font-display font-black text-gray-900 mb-8">
+            Impulsa tu Carrera<br />
+            <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+              Profesional
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Certificaciones especializadas en AML/FT reconocidas internacionalmente. 
-            Diseñadas por expertos para profesionales que buscan excelencia.
+            Programas de certificación internacional diseñados para profesionales que buscan 
+            liderar en prevención de lavado de activos y cumplimiento regulatorio
           </p>
         </div>
 
-        {/* Certification Cards */}
+        {/* Certification Cards Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {certifications.map((cert) => {
-            const config = getCertificationConfig(cert.id)
+          {mainCertifications.map((cert, index) => {
+            const theme = getCertificationTheme(cert.id);
             
             return (
               <div 
                 key={cert.id}
-                className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 overflow-hidden"
+                className={`group relative overflow-hidden rounded-3xl ${theme.bg} ${theme.border} border-2 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3`}
               >
-                {/* Header with Gradient */}
-                <div className={`bg-gradient-to-r ${config.gradient} p-8 text-white relative overflow-hidden`}>
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                    <div className="text-8xl transform rotate-12">
-                      {config.icon}
-                    </div>
+                {/* Header with gradient */}
+                <div className={`bg-gradient-to-r ${theme.gradient} p-8 text-white relative overflow-hidden`}>
+                  {/* Background pattern */}
+                  <div className="absolute inset-0 opacity-20">
+                    <div 
+                      className="w-full h-full"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='white' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`
+                      }}
+                    ></div>
                   </div>
                   
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="text-4xl">{config.icon}</div>
-                      <div className="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm font-bold">
-                        En línea
+                      <div className="text-4xl">{theme.icon}</div>
+                      <div className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                        {cert.duration}
                       </div>
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-2 leading-tight">
-                      {cert.title.split(' ').slice(0, 6).join(' ')}
+                    <h3 className="text-2xl font-display font-bold mb-2 leading-tight">
+                      {cert.title}
                     </h3>
-                    <div className="text-white/90 font-semibold mb-4">
+                    
+                    <p className="text-lg font-semibold opacity-90 mb-1">
                       {cert.badge}
-                    </div>
+                    </p>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-8">
-                  <p className="text-gray-700 leading-relaxed mb-8 text-base">
-                    {cert.description.substring(0, 150)}...
+                  <p className="text-gray-700 leading-relaxed mb-8 text-lg">
+                    {cert.description}
                   </p>
 
-                  {/* Key Features */}
+                  {/* Features Grid */}
                   <div className="grid grid-cols-2 gap-6 mb-8">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-10 h-10 ${config.accentColor} bg-gray-50 rounded-lg flex items-center justify-center`}>
-                        <FaClock />
+                    <div className="text-center">
+                      <div className={`w-12 h-12 ${theme.accent} rounded-xl flex items-center justify-center mx-auto mb-3`}>
+                        <FaClock className="text-white text-lg" />
                       </div>
-                      <div>
-                        <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Duración</div>
-                        <div className="font-bold text-gray-900">{cert.duration}</div>
-                      </div>
+                      <div className="font-bold text-gray-900">{cert.duration}</div>
+                      <div className="text-sm text-gray-500">Duración</div>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-10 h-10 ${config.accentColor} bg-gray-50 rounded-lg flex items-center justify-center`}>
-                        <FaGraduationCap />
+                    
+                    <div className="text-center">
+                      <div className={`w-12 h-12 ${theme.accent} rounded-xl flex items-center justify-center mx-auto mb-3`}>
+                        <FaGraduationCap className="text-white text-lg" />
                       </div>
-                      <div>
-                        <div className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Créditos</div>
-                        <div className="font-bold text-gray-900">{cert.credits}</div>
-                      </div>
+                      <div className="font-bold text-gray-900">{cert.credits}</div>
+                      <div className="text-sm text-gray-500">Créditos</div>
                     </div>
                   </div>
 
-                  {/* Benefits */}
+                  {/* Key Benefits */}
                   <div className="mb-8">
-                    <h4 className="font-bold text-gray-900 mb-4 flex items-center">
-                      <FaCheckCircle className="text-green-500 mr-2" />
-                      Lo que incluye:
-                    </h4>
+                    <h4 className="font-bold text-gray-900 mb-4">Beneficios incluidos:</h4>
                     <div className="space-y-3">
-                      {[
-                        'Modalidad 100% en línea',
-                        'Certificación internacional',
-                        'Sin requisitos previos',
-                        'Soporte académico personalizado'
-                      ].map((benefit, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <span className="text-gray-700 text-sm">{benefit}</span>
-                        </div>
-                      ))}
+                      <div className="flex items-center space-x-3">
+                        <FaCheckCircle className="text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">Certificación internacional</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <FaCheckCircle className="text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">Modalidad 100% online</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <FaCheckCircle className="text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">Material actualizado 2025</span>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <FaCheckCircle className="text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">Soporte académico personalizado</span>
+                      </div>
                     </div>
                   </div>
 
                   {/* Pricing */}
-                  <div className="bg-gray-50 rounded-2xl p-6 mb-8">
-                    <div className="flex items-center justify-between">
+                  <div className="bg-white rounded-2xl p-6 border border-gray-200 mb-8">
+                    <div className="flex items-center justify-between mb-4">
                       <div>
-                        <div className="flex items-center space-x-2 mb-2">
-                          <FaCreditCard className={config.accentColor} />
-                          <span className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Inversión</span>
+                        <div className="flex items-center space-x-2">
+                          <FaDollarSign className="text-green-600" />
+                          <span className="text-3xl font-black text-gray-900">{cert.priceUSD}</span>
+                          <span className="text-gray-500">USD</span>
                         </div>
-                        <div className="text-3xl font-bold text-gray-900">
-                          ${cert.priceUSD?.toLocaleString() || '1,225'}
-                          <span className="text-lg text-gray-500 ml-1">USD</span>
-                        </div>
-                        {cert.installments && (
-                          <div className="text-sm text-gray-600 mt-1">
-                            {cert.installments}
-                          </div>
-                        )}
+                        <div className="text-sm text-gray-500 mt-1">Precio total del programa</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl text-green-500 mb-1">✓</div>
-                        <div className="text-xs text-gray-500">Sin requisitos</div>
+                        <div className="text-sm font-semibold text-green-600">💳 Financiamiento</div>
+                        <div className="text-xs text-gray-600">
+                          {cert.installments || '3 cuotas disponibles'}
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="space-y-3">
+                  <div className="flex flex-col gap-4">
                     <Button 
+                      size="lg"
+                      className={`w-full bg-gradient-to-r ${theme.gradient} hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-bold`}
                       href={cert.enrollLink}
-                      className={`w-full ${config.buttonClass} text-white font-bold py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200`}
                     >
-                      ¡Inscribirme Ahora!
+                      🚀 Inscribirse Ahora
                     </Button>
                     <Button 
                       variant="outline"
+                      size="lg"
+                      className="w-full border-2"
                       href={cert.infoLink}
-                      className="w-full border-2 border-gray-200 text-gray-700 hover:bg-gray-50 font-semibold py-3"
                     >
-                      Más Información
+                      📋 Más Información
                     </Button>
                   </div>
                 </div>
 
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-12 h-12 opacity-5">
-                  <div className={`w-full h-full bg-gradient-to-br ${config.gradient} rounded-full`}></div>
-                </div>
+                {/* Popular badge */}
+                {index === 0 && (
+                  <div className="absolute -top-4 -right-4 bg-gradient-to-r from-secondary-500 to-secondary-600 text-primary-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg transform rotate-12">
+                    ⭐ Más Popular
+                  </div>
+                )}
               </div>
             )
           })}
         </div>
 
-        {/* Call to Action */}
-        <div className="relative">
-          <div className="bg-gradient-to-r from-primary-900 to-primary-700 rounded-3xl p-12 text-white relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-64 h-64 transform rotate-12">
-                <div className="text-9xl">🎓</div>
-              </div>
+        {/* Bottom CTA Section */}
+        <div className="bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 rounded-3xl p-12 text-white text-center relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 opacity-10">
+            <div 
+              className="w-full h-full"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='white' fill-opacity='0.1'%3E%3Ccircle cx='11' cy='11' r='3'/%3E%3Ccircle cx='49' cy='11' r='3'/%3E%3Ccircle cx='11' cy='49' r='3'/%3E%3Ccircle cx='49' cy='49' r='3'/%3E%3C/g%3E%3C/svg%3E")`
+              }}
+            ></div>
+          </div>
+          
+          <div className="relative z-10">
+            <h3 className="text-4xl font-display font-bold mb-6">
+              ¿Listo para ser un experto en cumplimiento?
+            </h3>
+            <p className="text-xl text-primary-100 mb-8 max-w-3xl mx-auto">
+              Únete a más de <strong>17,774 profesionales</strong> que han transformado sus carreras 
+              con nuestras certificaciones internacionales
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                size="xl"
+                className="bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-primary-900 font-bold shadow-xl"
+                href="/certificaciones"
+              >
+                📚 Ver Todas las Certificaciones
+              </Button>
+              <Button 
+                variant="outline"
+                size="xl"
+                className="border-2 border-primary-300 text-primary-100 hover:bg-primary-100 hover:text-primary-900"
+                href="/contacto"
+              >
+                💬 Hablar con Asesor
+              </Button>
             </div>
             
-            <div className="relative z-10 text-center">
-              <h3 className="text-4xl font-bold mb-6">
-                ¿Listo para <span className="text-secondary-400">Certificarte</span>?
-              </h3>
-              <p className="text-xl text-primary-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Únete a más de 17,774 profesionales que han confiado en FELADE para impulsar sus carreras
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <Button 
-                  size="xl"
-                  className="bg-secondary-500 hover:bg-secondary-600 text-primary-900 font-bold px-8 py-4 text-xl shadow-2xl hover:scale-105 transition-all duration-200"
-                  href="/certificaciones"
-                >
-                  Ver Todas las Certificaciones
-                </Button>
-                <Button 
-                  variant="outline"
-                  size="xl"
-                  className="border-2 border-primary-300 text-primary-100 hover:bg-primary-100 hover:text-primary-900 font-semibold px-8 py-4 text-xl"
-                  href="/contacto"
-                >
-                  Hablar con Asesor
-                </Button>
+            {/* Trust indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-8 border-t border-primary-600">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-secondary-400">20+</div>
+                <div className="text-primary-200 text-sm">Años de experiencia</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-secondary-400">10+</div>
+                <div className="text-primary-200 text-sm">Países con presencia</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-secondary-400">99%</div>
+                <div className="text-primary-200 text-sm">Tasa de satisfacción</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-secondary-400">1,324+</div>
+                <div className="text-primary-200 text-sm">Empresas certificadas</div>
               </div>
             </div>
           </div>

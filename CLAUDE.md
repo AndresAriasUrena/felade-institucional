@@ -81,10 +81,62 @@ The main page (`src/app/page.js`) renders these sections in order:
 - Site is optimized for bilingual content (Spanish primary, some English metadata)
 - Built for static export capability (see commented options in next.config.mjs)
 
-### Common Issues
-- If `INSTITUTIONAL_STATS` import errors occur, ensure it's properly exported as an array in constants.js
-- TailwindCSS experimental features may require specific versions - avoid `optimizeCss` which needs additional dependencies
-- Port conflicts are common - Next.js will automatically use available ports (3001, 3003, etc.)
+### Recent Major Updates
+
+#### Professional Redesign (Latest - December 2024)
+Complete transformation of all major components with modern, professional design system:
+
+**Component Updates:**
+1. **HeroSlider** (`src/components/sections/HeroSlider.js`):
+   - Full-screen professional hero with dynamic certification backgrounds
+   - Color-coded gradients per certification (CIPLAD: blue, CIMAR: emerald, CIBCA: purple, WCF: red)
+   - Interactive pricing display and detailed certification information
+   - Auto-rotation every 7 seconds with manual navigation controls
+
+2. **CertificationCards** (`src/components/sections/CertificationCards.js`):
+   - Elevated card design with gradient headers and distinctive colors
+   - Detailed pricing information with installment options
+   - Professional benefits listing and enhanced action buttons
+   - WCF certification excluded from main display
+
+3. **UpazPartner** (`src/components/sections/UpazPartner.js`):
+   - Professional gradient background (blue-50 to indigo-100)
+   - Comprehensive UPAZ university statistics grid
+   - Academic programs showcase with UN Peace University partnership
+   - Enhanced iconography using React Icons
+
+4. **InstitutionalStats** (`src/components/sections/InstitutionalStats.js`):
+   - Background image with blue gradient overlay and pattern
+   - Colorful icon system for each statistic (17,774+ professionals trained)
+   - Recognition card and achievement highlight sections
+   - Professional backdrop blur effects throughout
+
+5. **ServicesSection** (`src/components/sections/ServicesSection.js`):
+   - Enhanced responsive grid layout (2/3 columns)
+   - Professional React Icons replacing emoji icons
+   - Color-coded services (consultancy: blue, programs: emerald, advisory: purple, conferences: red, training: orange)
+   - Integrated statistics section with key business metrics
+   - Modern card design with gradient headers and hover effects
+
+**Design System Improvements:**
+- Consistent gradient backgrounds and backdrop blur effects
+- Professional color theming with certification-specific palettes
+- Enhanced typography and visual hierarchy
+- Smooth hover animations and interactive elements
+- Mobile-responsive layouts across all components
+- Modern card designs with shadow and elevation effects
+- Professional iconography throughout the site
+
+### Common Issues & Solutions
+- **INSTITUTIONAL_STATS Import Error**: Fixed duplicate export by renaming to INSTITUTIONAL_STATS_DETAILED
+- **Missing 'critters' Module**: Removed experimental optimizeCss from next.config.mjs
+- **Port Conflicts**: Next.js automatically uses alternative ports (3001, 3003, etc.)
+- **Component Import Errors**: Ensure all required exports are available in constants.js
+
+### Git Repository
+- **Remote**: https://github.com/AndresAriasUrena/felade-institucional.git
+- **Branch**: main (production ready)
+- **Latest Commit**: Professional redesign with enhanced components and design system
 
 ### Deployment Preparation
 To enable static export for deployment:
