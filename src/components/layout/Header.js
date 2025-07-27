@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa'
 
 const Header = () => {
@@ -49,16 +50,16 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-secondary-500 rounded-lg flex items-center justify-center">
-              <span className="text-primary-900 font-bold text-lg">F</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-display font-bold text-white">FELADE</h1>
-              <p className="text-xs text-gray-300 leading-tight">
-                Fundación para el Estudio del<br />
-                Lavado de Activos y Delitos
-              </p>
+          <Link href="/" className="flex items-center">
+            <div className="h-12 w-auto relative">
+              <Image
+                src="/images/icons/FELADE-blanco.png"
+                alt="FELADE - Fundación para el Estudio del Lavado de Activos y Delitos"
+                width={180}
+                height={48}
+                className="object-contain h-full w-auto"
+                priority
+              />
             </div>
           </Link>
 

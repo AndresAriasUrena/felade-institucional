@@ -179,6 +179,56 @@ body {
   backdrop-filter: none !important;
 }
 
+/* FIXED: Ensure text colors work properly */
+.text-white {
+  color: rgb(255 255 255) !important;
+}
+
+.text-primary-100 {
+  color: rgb(219 234 254) !important;
+}
+
+.text-primary-200 {
+  color: rgb(191 219 254) !important;
+}
+
+.text-secondary-400 {
+  color: rgb(251 191 36) !important;
+}
+
+.text-secondary-500 {
+  color: rgb(245 158 11) !important;
+}
+
+/* Background image fix - Parallax real */
+.bg-image-fixed {
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+/* Support for older browsers that don't support background-attachment: fixed */
+@supports not (background-attachment: fixed) {
+  .bg-image-fixed {
+    background-attachment: scroll;
+  }
+}
+
+/* Mobile parallax fix - disable on mobile for better performance */
+@media (max-width: 768px) {
+  .bg-image-fixed,
+  [style*="background-attachment: fixed"] {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Ensure backdrop-blur works */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
 /* Selección de texto personalizada */
 ::selection {
   background-color: rgba(245, 158, 11, 0.2);

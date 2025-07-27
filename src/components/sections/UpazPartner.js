@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { 
   FaUsers, 
   FaGlobe, 
@@ -8,228 +9,224 @@ import {
   FaExternalLinkAlt,
   FaUniversity,
   FaGraduationCap,
-  FaAward
+  FaAward,
+  FaChevronDown,
+  FaChevronUp,
+  FaPeace
 } from 'react-icons/fa'
-import Container from '../ui/Container'
-import Button from '../ui/Button'
 
 const UpazPartner = () => {
-  const upazStats = [
+  const [activeAccordion, setActiveAccordion] = useState('programs')
+
+  const accordionItems = [
     {
-      icon: <FaUniversity className="w-10 h-10" />,
-      number: 'Desde 1980',
-      label: 'Institución de la ONU',
-      description: 'Creada por la Asamblea General'
+      id: 'programs',
+      title: 'Programas de maestría y doctorado',
+      icon: <FaGraduationCap className="w-5 h-5" />,
+      content: (
+        <div className="space-y-3">
+          <p className="text-gray-600 text-sm leading-relaxed">
+            UPEACE ofrece programas de maestría y doctorado con enfoque interdisciplinario 
+            que combina formación académica rigurosa con aprendizaje práctico en 
+            resolución de conflictos, derechos humanos y desarrollo sostenible.
+          </p>
+        </div>
+      )
     },
     {
-      icon: <FaUsers className="w-10 h-10" />,
-      number: '+6,000',
-      label: 'Egresados',
-      description: 'Graduados de más de 120 países'
+      id: 'education',
+      title: 'Educación para la paz',
+      icon: <FaPeace className="w-5 h-5" />,
+      content: (
+        <div className="space-y-3">
+          <p className="text-gray-600 text-sm leading-relaxed">
+            El campus principal, conocido como Campus Rodrigo Carazo, se encuentra en una 
+            reserva natural de 303 hectáreas, proporcionando un entorno propicio para la 
+            reflexión y el aprendizaje en armonía con la naturaleza.
+          </p>
+        </div>
+      )
     },
     {
-      icon: <FaGlobe className="w-10 h-10" />,
-      number: '120+',
-      label: 'Países',
-      description: 'Alcance mundial'
-    },
-    {
-      icon: <FaHandshake className="w-10 h-10" />,
-      number: '2018',
-      label: 'Alianza FELADE',
-      description: 'Partnership estratégico'
+      id: 'graduates',
+      title: '+6,000 egresados de más de 120 países',
+      icon: <FaUsers className="w-5 h-5" />,
+      content: (
+        <div className="space-y-3">
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Con una comunidad estudiantil diversa, UPEACE ha formado a más de 6,000 
+            egresados de más de 120 países, quienes contribuyen activamente a la 
+            construcción de un mundo más pacífico y justo.
+          </p>
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-3 rounded-lg mt-3">
+            <div className="text-2xl font-bold text-blue-600 mb-1">44 años</div>
+            <p className="text-xs text-gray-600">Formando líderes globales dedicados exclusivamente a la educación para la paz</p>
+          </div>
+        </div>
+      )
     }
   ]
 
-  const academicPrograms = [
-    'Educación para la paz y derechos humanos',
-    'Resolución de conflictos internacionales', 
-    'Desarrollo sostenible y medio ambiente',
-    'Cooperación internacional',
-    'Derecho internacional humanitario',
-    'Estudios de género y paz'
-  ]
+  const toggleAccordion = (id) => {
+    setActiveAccordion(activeAccordion === id ? null : id)
+  }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.4'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}
-        />
-      </div>
-
-      <Container>
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-6 mb-8">
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-xl">
-              <div className="text-white">
-                <div className="text-lg font-bold">UN</div>
-                <div className="w-6 h-0.5 bg-white mx-auto"></div>
-                <div className="text-xs">PEACE</div>
-              </div>
-            </div>
-            <div className="h-16 w-1 bg-gradient-to-b from-primary-300 to-primary-500 rounded-full"></div>
-            <div className="text-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-2">
-                Universidad para la Paz
-              </h2>
-              <div className="flex items-center space-x-3">
-                <FaAward className="text-secondary-500" />
-                <span className="text-secondary-600 font-bold text-lg">
-                  Partner Académico Global
-                </span>
-              </div>
-            </div>
-          </div>
-          
-          <p className="text-xl text-gray-700 max-w-5xl mx-auto leading-relaxed">
-            La <strong>Universidad para la Paz (UPEACE)</strong> es una institución académica internacional 
-            creada en 1980 por la Asamblea General de las Naciones Unidas. Su mandato 
-            exclusivo es la educación para la paz, siendo la <strong>única universidad en el sistema 
-            de la ONU</strong> dedicada a este propósito.
-          </p>
-        </div>
-
-        {/* Statistics Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {upazStats.map((stat, index) => (
-            <div 
-              key={index}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/50"
-            >
-              <div className="text-primary-600 mb-4 flex justify-center">
-                {stat.icon}
-              </div>
-              <div className="text-3xl font-bold text-primary-900 mb-2">
-                {stat.number}
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {stat.label}
-              </h3>
-              <p className="text-gray-600 text-sm">
-                {stat.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Programs Information */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 shadow-xl border border-white/50">
-            <div className="flex items-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl flex items-center justify-center mr-4">
-                <FaGraduationCap className="text-2xl text-white" />
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-primary-900 mb-1">
-                  Programas Académicos
-                </h3>
-                <p className="text-gray-600">Maestrías y Doctorados</p>
-              </div>
+    <section className="py-12 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Header con layout horizontal */}
+        <div className="grid lg:grid-cols-2 gap-8 items-start mb-12">
+          {/* Columna izquierda - Contenido */}
+          <div className="order-2 lg:order-1">
+            {/* Logo y título */}
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <img 
+                src="/images/icons/UPAZ-logo.png" 
+                alt="Universidad para la Paz - UPEACE Logo" 
+                className="h-16 w-auto object-contain"
+              />
+              
+              {/* <div>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Universidad para la Paz (UPEACE)
+                </h2>
+                <div className="flex items-center gap-2">
+                  <FaAward className="text-yellow-500 text-xs" />
+                  <span className="text-yellow-600 font-semibold text-xs">
+                    Partner Académico Global
+                  </span>
+                </div>
+              </div> */}
             </div>
             
-            <p className="text-gray-700 mb-8 leading-relaxed text-lg">
-              UPEACE ofrece programas de <strong>maestría y doctorado</strong> con enfoque interdisciplinario 
-              que combina formación académica rigurosa con aprendizaje práctico en resolución 
-              de conflictos, derechos humanos y desarrollo sostenible.
+            {/* Descripción */}
+            <p className="text-sm text-gray-700 leading-relaxed mb-6">
+              La <strong>Universidad para la Paz (UPEACE)</strong> es una institución académica internacional 
+              creada en 1980 por la Asamblea General de las Naciones Unidas. Su mandato 
+              exclusivo es la educación para la paz, siendo la <strong>única universidad en el sistema 
+              de la ONU</strong> dedicada a este propósito.
             </p>
-            
-            <div className="grid grid-cols-1 gap-4">
-              {academicPrograms.map((program, index) => (
-                <div key={index} className="flex items-center space-x-4 p-4 bg-blue-50 rounded-xl">
-                  <div className="w-8 h-8 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FaCheckCircle className="text-white text-sm" />
+
+            {/* Acordeones */}
+            <div className="space-y-2 mb-6">
+              {accordionItems.map((item) => (
+                <div 
+                  key={item.id}
+                  className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleAccordion(item.id)}
+                    className={`w-full px-4 py-3 flex items-center justify-between transition-colors duration-200 ${
+                      activeAccordion === item.id ? 'bg-gray-50' : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`${activeAccordion === item.id ? 'text-blue-600' : 'text-gray-400'} text-sm`}>
+                        {item.icon}
+                      </div>
+                      <h3 className={`font-medium text-sm text-left ${
+                        activeAccordion === item.id ? 'text-blue-600' : 'text-gray-700'
+                      }`}>
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div className={`text-xs transition-transform duration-200 ${
+                      activeAccordion === item.id ? 'text-blue-600 rotate-180' : 'text-gray-400'
+                    }`}>
+                      <FaChevronDown />
+                    </div>
+                  </button>
+                  
+                  <div className={`transition-all duration-300 ${
+                    activeAccordion === item.id ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                  } overflow-hidden`}>
+                    <div className="px-4 pb-3">
+                      {item.content}
+                    </div>
                   </div>
-                  <span className="text-gray-800 font-medium">{program}</span>
                 </div>
               ))}
             </div>
           </div>
-          
-          {/* Highlight Card */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 rounded-3xl p-10 text-white relative overflow-hidden shadow-2xl">
-              {/* Background Decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                <div className="text-8xl transform rotate-12">🕊️</div>
-              </div>
-              
-              <div className="relative z-10">
-                <div className="text-center mb-8">
-                  <div className="text-6xl font-bold mb-4">
-                    <span className="text-secondary-400">44</span>
-                    <span className="text-4xl text-primary-200 ml-2">años</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">
-                    Formando Líderes Globales
-                  </h3>
-                  <p className="text-primary-200">
-                    Dedicados exclusivamente a la educación para la paz
-                  </p>
-                </div>
 
-                <div className="space-y-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center space-x-3">
-                      <FaGlobe className="text-secondary-400" />
-                      <div>
-                        <div className="font-semibold">Campus Internacional</div>
-                        <div className="text-sm text-primary-200">Rodrigo Carazo, Costa Rica</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-                    <div className="flex items-center space-x-3">
-                      <FaUniversity className="text-secondary-400" />
-                      <div>
-                        <div className="font-semibold">Reconocimiento ONU</div>
-                        <div className="text-sm text-primary-200">Única universidad de paz del sistema</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          {/* Columna derecha - Imagen con overlay de stats */}
+          <div className="order-1 lg:order-2">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="/images/backgrounds/upaz-bg.jpg"
+                alt="Estudiantes graduados UPEACE - FELADE"
+                className="w-full h-[600px] object-cover object-center"
+              />
+              
+              {/* Gradiente overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              
+              {/* Badge de graduación */}
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+                <div className="text-2xl">🎓</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-primary-900 mb-4">
+        {/* Stats Grid con CTA - 6 columnas */}
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
+          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+            <FaUniversity className="w-5 h-5 text-blue-600 mx-auto mb-2" />
+            <div className="text-xl font-bold text-gray-900">Desde 1980</div>
+            <div className="text-xs text-gray-600">Institución de la ONU</div>
+            <div className="text-[10px] text-gray-500 mt-1">Creada por la Asamblea General</div>
+          </div>
+          
+          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+            <FaUsers className="w-5 h-5 text-blue-600 mx-auto mb-2" />
+            <div className="text-xl font-bold text-gray-900">+6,000</div>
+            <div className="text-xs text-gray-600">Egresados</div>
+            <div className="text-[10px] text-gray-500 mt-1">Graduados de más de 120 países</div>
+          </div>
+          
+          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+            <FaGlobe className="w-5 h-5 text-blue-600 mx-auto mb-2" />
+            <div className="text-xl font-bold text-gray-900">120+</div>
+            <div className="text-xs text-gray-600">Países</div>
+            <div className="text-[10px] text-gray-500 mt-1">Alcance mundial</div>
+          </div>
+          
+          <div className="bg-white rounded-xl p-4 text-center shadow-sm border border-gray-100">
+            <FaHandshake className="w-5 h-5 text-blue-600 mx-auto mb-2" />
+            <div className="text-xl font-bold text-gray-900">2018</div>
+            <div className="text-xs text-gray-600">Alianza FELADE</div>
+            <div className="text-[10px] text-gray-500 mt-1">Partnership estratégico</div>
+          </div>
+
+          {/* CTA como columnas 5-6 (2 columnas) */}
+          <div className="col-span-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-4 text-white flex flex-col justify-center">
+            <h3 className="text-sm font-bold mb-2">
               Conoce más sobre nuestra alianza
             </h3>
-            <p className="text-gray-700 mb-6">
-              Descubre cómo la colaboración entre FELADE y UPEACE fortalece 
-              nuestros programas de certificación internacional.
+            <p className="text-xs text-blue-100 mb-3">
+              Descubre cómo fortalecemos la certificación internacional.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+            <div className="flex gap-2">
+              <a
                 href="https://www.upeace.org" 
                 target="_blank"
-                className="bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-200"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-white text-blue-600 px-3 py-1.5 rounded text-xs font-semibold hover:bg-blue-50 transition-colors duration-200 flex-1"
               >
-                <FaExternalLinkAlt className="mr-2" />
+                <FaExternalLinkAlt className="mr-1 text-[10px]" />
                 Visitar UPEACE
-              </Button>
-              <Button
-                variant="outline"
+              </a>
+              <a
                 href="/sobre-nosotros"
-                className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-semibold px-6 py-3"
+                className="inline-flex items-center justify-center border border-white text-white px-3 py-1.5 rounded text-xs font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 flex-1"
               >
                 Nuestra Historia
-              </Button>
+              </a>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

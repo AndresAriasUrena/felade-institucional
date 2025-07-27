@@ -22,6 +22,10 @@ export default function Home() {
 
       <MainCertifications/>
       <SuccessIndicators/>
+
+      <UpazPartner />
+
+
       {/* Academic Programs */}
       {/* <AcademicPrograms /> */}
             
@@ -29,17 +33,15 @@ export default function Home() {
       {/* <CertificationCards /> */}
       
       {/* Institutional Mission, Vision & Values */}
-      <InstitutionalMission />
+      {/* <InstitutionalMission /> */}
       
       {/* Services Overview */}
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       
       
       {/* Institutional Statistics */}
-      <InstitutionalStats />
+      {/* <InstitutionalStats /> */}
       
-      {/* UPAZ Partnership */}
-      <UpazPartner />
       
       {/* Country Alliances */}
       <CountryAlliances />
