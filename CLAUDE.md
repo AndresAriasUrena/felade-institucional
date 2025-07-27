@@ -76,67 +76,156 @@ The main page (`src/app/page.js`) renders these sections in order:
 
 ### Important Development Notes
 - Uses React Icons (`react-icons`) and Heroicons (`@heroicons/react`) for iconography
-- Framer Motion available for animations (v12.23.9)
 - All external links point to real FELADE certification sites (ciplad.felade.com, etc.)
 - Site is optimized for bilingual content (Spanish primary, some English metadata)
 - Built for static export capability (see commented options in next.config.mjs)
 
+### Image Management System
+The project uses a centralized image management system:
+```javascript
+// src/lib/images.js
+export const heroBackgrounds = {
+  ciplad: '/images/hero/ciplad-bg.jpg',
+  cimar: '/images/hero/cimar-bg.jpg', 
+  cibca: '/images/hero/cibca-bg.jpg',  // Crypto-themed
+  wcf: '/images/hero/wcf-bg.jpg'
+}
+
+export const getImageWithFallback = (imagePath, fallbackType = 'hero') => {
+  // Returns fallback if primary image fails
+}
+```
+
+**Image Specifications:**
+- Format: Optimized JPEG (80% quality)
+- Max Dimensions: 1920px width
+- Average Size: ~200-700KB per image
+- Location: `public/images/hero/`
+- Fallback: `felade-hero-bg.jpg`
+
+### CSS Architecture Guidelines
+**DO:**
+- Use Tailwind classes for styling (`text-white`, `bg-blue-500`, etc.)
+- Add custom FELADE classes in `globals.css` for specific components
+- Use CSS variables for consistent theming
+
+**DON'T:**
+- Override global HTML tags (h1, h2, etc.) as it conflicts with Tailwind
+- Use `!important` unless absolutely necessary for component-specific styles
+- Create global styles that interfere with utility-first approach
+
+**Custom Classes Available:**
+- `.felade-header` - Custom gradient navbar
+- `.glass` / `.glass-dark` - Glass morphism effects
+- `.card-hover` - Standard card hover animations
+- `.gradient-text` / `.gradient-text-primary` - Gradient text effects
+
 ### Recent Major Updates
 
-#### Professional Redesign (Latest - December 2024)
-Complete transformation of all major components with modern, professional design system:
+#### Complete Professional Redesign & UI Optimization (Latest - July 2025)
+Comprehensive transformation with modern design system, proper CSS architecture, and optimized performance:
+
+**Core Infrastructure Updates:**
+1. **CSS Architecture Cleanup** (`src/app/globals.css`):
+   - Removed problematic global heading overrides that conflicted with Tailwind
+   - Simplified to essential variables and utilities only
+   - Full Tailwind CSS compatibility restored
+   - Custom FELADE classes for specific components
+   - Proper CSS specificity hierarchy
+
+2. **Image Management System** (`src/lib/images.js` + `public/images/hero/`):
+   - Professional hero background images for all certifications
+   - Optimized JPEG format (80% quality, max 1920px width)
+   - Fallback system for better UX
+   - Crypto-themed CIBCA background updated
+   - Total image optimization: 2.4MB → 719KB average
+
+3. **New Homepage Components** (`src/components/sections/`):
+   - **ServicesOverview.js**: Modern glass-morphism cards with gold accents (#C38523)
+   - **MainCertifications.js**: Three main certification programs showcase
+   - **SuccessIndicators.js**: Company statistics and achievements display
 
 **Component Updates:**
 1. **HeroSlider** (`src/components/sections/HeroSlider.js`):
-   - Full-screen professional hero with dynamic certification backgrounds
-   - Color-coded gradients per certification (CIPLAD: blue, CIMAR: emerald, CIBCA: purple, WCF: red)
-   - Interactive pricing display and detailed certification information
-   - Auto-rotation every 7 seconds with manual navigation controls
+   - Unified blue overlay for all slides (consistent CIPLAD theme)
+   - Removed certificate mockup card for cleaner layout
+   - Enhanced typography with proper contrast (#50D0FF accent color)
+   - Optimized performance with 10-second rotation timing
+   - Real background images with smooth transitions
 
-2. **CertificationCards** (`src/components/sections/CertificationCards.js`):
-   - Elevated card design with gradient headers and distinctive colors
+2. **Header/Navbar** (`src/components/layout/Header.js`):
+   - Correct FELADE name: "Fundación para el Estudio del Lavado de Activos y Delitos"
+   - Custom gradient: #01174D → #1e3a8a (navy to FELADE blue)
+   - Compact design with improved spacing
+   - High z-index for proper layering
+   - Mobile-optimized navigation
+
+3. **ServicesOverview** (`src/components/sections/ServicesOverview.js`):
+   - NEW: Replaced traditional white cards with glass-morphism design
+   - Dark blue background (#01123E) with transparent cards
+   - Gold color scheme (#C38523) for accents and icons
+   - Optimized height with reduced padding and spacing
+   - Three-column layout for main services, two-column for additional services
+   - Professional backdrop blur effects and hover animations
+
+4. **CertificationCards** (`src/components/sections/CertificationCards.js`):
+   - Elevated design with gradient headers and distinctive colors
    - Detailed pricing information with installment options
    - Professional benefits listing and enhanced action buttons
-   - WCF certification excluded from main display
+   - Only showing main 3 certifications (excluding WCF from cards)
 
-3. **UpazPartner** (`src/components/sections/UpazPartner.js`):
+5. **UpazPartner** (`src/components/sections/UpazPartner.js`):
    - Professional gradient background (blue-50 to indigo-100)
    - Comprehensive UPAZ university statistics grid
    - Academic programs showcase with UN Peace University partnership
    - Enhanced iconography using React Icons
 
-4. **InstitutionalStats** (`src/components/sections/InstitutionalStats.js`):
+6. **InstitutionalStats** (`src/components/sections/InstitutionalStats.js`):
    - Background image with blue gradient overlay and pattern
    - Colorful icon system for each statistic (17,774+ professionals trained)
    - Recognition card and achievement highlight sections
    - Professional backdrop blur effects throughout
 
-5. **ServicesSection** (`src/components/sections/ServicesSection.js`):
-   - Enhanced responsive grid layout (2/3 columns)
-   - Professional React Icons replacing emoji icons
-   - Color-coded services (consultancy: blue, programs: emerald, advisory: purple, conferences: red, training: orange)
-   - Integrated statistics section with key business metrics
-   - Modern card design with gradient headers and hover effects
+7. **AcademicPrograms** (`src/components/sections/AcademicPrograms.js`):
+   - Enhanced visual design with program-specific images and colors
+   - Gradient overlays and improved card layouts
+   - Better information hierarchy and call-to-action buttons
+   - Program-specific color coding and iconography
 
-**Design System Improvements:**
-- Consistent gradient backgrounds and backdrop blur effects
-- Professional color theming with certification-specific palettes
-- Enhanced typography and visual hierarchy
-- Smooth hover animations and interactive elements
-- Mobile-responsive layouts across all components
-- Modern card designs with shadow and elevation effects
-- Professional iconography throughout the site
+**Technical Improvements:**
+- Proper Tailwind CSS integration without global conflicts
+- Optimized image loading and performance
+- Consistent color theming across all components
+- Enhanced accessibility and responsive design
+- Clean component architecture
+- Improved development experience
+- Height optimization for better page flow
 
 ### Common Issues & Solutions
+- **CSS Override Conflicts**: FIXED - Removed global heading color overrides that conflicted with Tailwind classes
+- **Text Color Issues**: FIXED - White text now works properly with `text-white` class after removing CSS conflicts
 - **INSTITUTIONAL_STATS Import Error**: Fixed duplicate export by renaming to INSTITUTIONAL_STATS_DETAILED
 - **Missing 'critters' Module**: Removed experimental optimizeCss from next.config.mjs
 - **Port Conflicts**: Next.js automatically uses alternative ports (3001, 3003, etc.)
 - **Component Import Errors**: Ensure all required exports are available in constants.js
+- **Image Loading**: Use the image utility system in `src/lib/images.js` for hero backgrounds with fallbacks
+- **Header Z-Index**: Header uses z-index 9999 to stay above hero and other components
 
 ### Git Repository
 - **Remote**: https://github.com/AndresAriasUrena/felade-institucional.git
 - **Branch**: main (production ready)
-- **Latest Commit**: Professional redesign with enhanced components and design system
+- **Recent Commits**:
+  - `536a884` - fixes hero slider (CSS cleanup, unified colors, layout optimization)
+  - `602e00a` - feat: Add hero background images and update navbar with FELADE branding
+  - `6fb61e5` - feat: Complete professional redesign of FELADE institutional website
+
+### Current Development Status
+- ✅ Professional hero slider with optimized images and unified design
+- ✅ Correct FELADE branding and gradient navbar
+- ✅ Clean CSS architecture without Tailwind conflicts
+- ✅ All major components redesigned and optimized
+- ✅ Image management system implemented
+- ✅ Mobile-responsive design completed
 
 ### Deployment Preparation
 To enable static export for deployment:

@@ -19,11 +19,11 @@ export const CERTIFICATIONS = [
   },
   {
     id: 'cimar',
-    badge: 'Taller Internacional',
-    title: 'Taller Internacional en Matrices de Riesgo (CIMAR)',
+    badge: 'Certificación Internacional',
+    title: 'Certificación Internacional en Matrices de Riesgo (CIMAR)',
     description: 'Conviértase en un referente en la implementación de matrices de riesgo efectivas para fortalecer su programa de cumplimiento. Aprenda a identificar, medir y mitigar riesgos estratégicos, operativos y regulatorios bajo estándares internacionales.',
     modality: 'En línea (1 vez a la semana de 5:30 pm a 8:30 pm, hora de Costa Rica según cronograma)',
-    duration: '3 meses',
+    duration: '4 meses',
     credits: '6 créditos',
     requirements: 'No',
     priceUSD: 1225,
@@ -38,7 +38,7 @@ export const CERTIFICATIONS = [
     title: 'Certificación Internacional Blockchain, Compliance y Activos Digitales (CIBCA)',
     description: 'Domine los fundamentos del ecosistema blockchain y su impacto en los programas de cumplimiento. Esta certificación abarca criptoactivos, contratos inteligentes, tokenización y los marcos regulatorios emergentes más relevantes.',
     modality: 'En línea (1 vez a la semana de 5:30 pm a 8:30 pm, hora de Costa Rica según cronograma)',
-    duration: '3 meses',
+    duration: '4 meses',
     credits: '6 créditos',
     requirements: 'No',
     priceUSD: 1225,
@@ -242,14 +242,14 @@ export const ACADEMIC_PROGRAMS = [
     description: 'Certificación en Prevención del Lavado de Activos y Delitos con enfoque internacional'
   },
   {
-    name: 'Taller CIMAR',
-    duration: '3 meses', 
+    name: 'Certificación CIMAR',
+    duration: '4 meses', 
     modality: 'Virtual',
-    description: 'Taller Internacional en Matrices de Riesgo para profesionales en cumplimiento'
+    description: 'Certificación Internacional en Matrices de Riesgo para profesionales en cumplimiento'
   },
   {
     name: 'Certificación CIBCA',
-    duration: '3 meses',
+    duration: '4 meses',
     modality: 'Virtual',
     description: 'Certificación Internacional Blockchain, Compliance y Activos Digitales'
   }

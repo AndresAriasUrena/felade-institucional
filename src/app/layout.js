@@ -55,7 +55,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${inter.variable} ${montserrat.variable} ${merriweather.variable} font-sans antialiased bg-white text-gray-900`}>
+      <body 
+        className={`${inter.variable} ${montserrat.variable} ${merriweather.variable} font-sans antialiased bg-white text-gray-900`}
+        suppressHydrationWarning={true}
+      >
         <Header />
         <main className="min-h-screen">
           {children}

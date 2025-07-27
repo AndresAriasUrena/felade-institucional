@@ -38,7 +38,7 @@ const HeroSlider = () => {
         };
       case 'cimar':
         return {
-          subtitle: 'Taller Internacional en',
+          subtitle: 'Certificación Internacional en',
           title: 'Matrices de Riesgo (CIMAR)'
         };
       case 'cibca':
@@ -79,7 +79,7 @@ const HeroSlider = () => {
         <div 
           className="absolute inset-0 transition-all duration-1000 ease-in-out"
           style={{
-            background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(29, 78, 216, 0.75))'
+            background: 'linear-gradient(135deg, rgba(0, 14, 32, 0.85), rgba(1, 23, 77, 0.75))'
           }}
         />
         
