@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Image optimization
+  // Image optimization - disabled for static export
   images: {
+    unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -39,10 +40,10 @@ const nextConfig = {
     ]
   },
 
-  // Static export configuration (uncomment when ready to deploy)
-  // output: 'export',
-  // trailingSlash: true,
-  // skipTrailingSlashRedirect: true,
+  // Static export configuration for hosting
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   
   // Generate metadata for SEO
   generateBuildId: async () => {

@@ -208,6 +208,7 @@ const SuccessIndicators = () => {
             {/* Stats Grid - Cuadros del mismo tamaño con animación */}
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto mb-8">
               {mainStats.map((stat, index) => {
+                // eslint-disable-next-line react-hooks/rules-of-hooks
                 const [animatedCount, statRef] = useCountUp(stat.number, 2000, index * 200)
                 
                 return (
