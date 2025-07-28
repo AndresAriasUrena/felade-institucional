@@ -83,7 +83,7 @@ const UpazPartner = () => {
               <img 
                 src="/images/icons/UPAZ-logo.png" 
                 alt="Universidad para la Paz - UPEACE Logo" 
-                className="h-16 w-auto object-contain"
+                className="h-24 w-auto object-contain"
               />
               
               {/* <div>
@@ -162,9 +162,9 @@ const UpazPartner = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               
               {/* Badge de graduación */}
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+              {/* <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
                 <div className="text-2xl">🎓</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

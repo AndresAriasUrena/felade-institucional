@@ -47,7 +47,7 @@ export default function Home() {
       <CountryAlliances />
       
       {/* About Us Excerpt */}
-      <AboutUsExcerpt />
+      {/* <AboutUsExcerpt /> */}
     </>
   )
 }

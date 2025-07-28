@@ -29,7 +29,7 @@ const MainCertifications = () => {
         border: 'border-gray-200',
         accent: 'bg-blue-600',
         icon: <FaShieldAlt className="w-6 h-6" />,
-        color: '#01123E',
+        color: '#002684',
         bgPattern: 'rgba(37, 99, 235, 0.05)'
       },
       cimar: {
@@ -38,7 +38,7 @@ const MainCertifications = () => {
         border: 'border-gray-200',
         accent: 'bg-blue-600',
         icon: <FaChartLine className="w-6 h-6" />,
-        color: '#01123E',
+        color: '#002684',
         bgPattern: 'rgba(37, 99, 235, 0.05)'
       },
       cibca: {
@@ -47,16 +47,11 @@ const MainCertifications = () => {
         border: 'border-gray-200', 
         accent: 'bg-blue-600',
         icon: <FaBitcoin className="w-6 h-6" />,
-        color: '#01123E',
+        color: '#002684',
         bgPattern: 'rgba(37, 99, 235, 0.05)'
       }
     }
     return configs[id] || configs.ciplad;
-  }
-
-  // Placeholder image con gradiente
-  const getPlaceholderImage = (cert, config) => {
-    return `data:image/svg+xml,%3Csvg width='400' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad-${cert.id}' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:${config.color};stop-opacity:0.9' /%3E%3Cstop offset='100%25' style='stop-color:${config.color};stop-opacity:0.7' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grad-${cert.id})'/%3E%3Ctext x='50%25' y='45%25' font-size='18' fill='white' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold'%3E${encodeURIComponent(cert.icon)} ${encodeURIComponent(cert.badge)}%3C/text%3E%3Ctext x='50%25' y='65%25' font-size='12' fill='white' text-anchor='middle' font-family='Arial, sans-serif' opacity='0.9'%3ECertificación Internacional%3C/text%3E%3C/svg%3E`
   }
 
   return (
@@ -75,15 +70,24 @@ const MainCertifications = () => {
         <div className="relative z-10">
           {/* Header */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-primary-50 rounded-full px-6 py-3 mb-6">
-              <FaStar className="text-primary-600 mr-2" />
-              <span className="text-primary-600 font-bold text-sm uppercase tracking-wide">
+            <div className="inline-flex items-center bg-blue-50 rounded-full px-6 py-3 mb-6">
+              <FaStar className="text-blue-600 mr-2" />
+              <span className="text-blue-600 font-bold text-sm uppercase tracking-wide">
                 Certificaciones Internacionales
               </span>
             </div>
-            <h2 className="text-5xl lg:text-6xl font-display font-black text-gray-900 mb-8">
+            <h2 className="text-5xl lg:text-6xl font-display font-black text-blue-900 mb-8">
               Impulsa tu Carrera<br />
-              <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+              <span 
+                className="gradient-text-primary"
+                style={{
+                  background: 'linear-gradient(135deg, #1e3a8a 0%, #f59e0b 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  color: '#1e3a8a' // Fallback color
+                }}
+              >
                 Profesional
               </span>
             </h2>
@@ -106,7 +110,7 @@ const MainCertifications = () => {
                   {/* Header with gradient and title */}
                   <div className={`bg-gradient-to-r ${config.gradient} p-6 text-white relative overflow-hidden min-h-[195px] flex flex-col justify-between`}>
                     {/* Background pattern */}
-                    <div className="absolute inset-0 opacity-20">
+                    <div className="absolute inset-0 opacity-40">
                       <div 
                         className="w-full h-full"
                         style={{
@@ -118,7 +122,7 @@ const MainCertifications = () => {
                     <div className="relative z-10 flex flex-col justify-between h-full">
                       <div className="flex items-center justify-between mb-3">
                         <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                          <div style={{color: '#01123E'}}>
+                          <div className="text-white">
                             {config.icon}
                           </div>
                         </div>
@@ -221,7 +225,7 @@ const MainCertifications = () => {
 
                   {/* Popular badge */}
                   {index === 0 && (
-                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-secondary-500 to-secondary-600 text-primary-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg transform rotate-12">
+                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg transform rotate-12">
                       ⭐ Popular
                     </div>
                   )}
@@ -232,7 +236,7 @@ const MainCertifications = () => {
 
           {/* CTA Section */}
           <div className="text-center">
-            <div className="bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 rounded-2xl p-8 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 rounded-2xl p-8 text-white relative overflow-hidden">
               {/* Background decoration */}
               <div className="absolute inset-0 opacity-10">
                 <div 
@@ -244,30 +248,26 @@ const MainCertifications = () => {
               </div>
               
               <div className="relative z-10">
-                <h3 className="text-3xl font-display font-bold mb-4" style={{color: '#01123E'}}>
+                <h3 className="text-3xl font-display font-bold mb-4 text-white">
                   ¿Listo para ser un experto en cumplimiento?
                 </h3>
-                <p className="text-lg mb-6 max-w-2xl mx-auto" style={{color: '#01123E'}}>
-                  Únete a más de <strong style={{color: '#fbbf24'}}>17,774 profesionales</strong> que han transformado sus carreras 
+                <p className="text-lg mb-6 max-w-2xl mx-auto text-blue-100">
+                  Únete a más de <strong className="text-amber-300">17,774 profesionales</strong> que han transformado sus carreras 
                   con nuestras certificaciones internacionales
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button 
+                  {/* <Button 
                     size="lg"
-                    className="bg-[#01123E] from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-01123E font-bold shadow-xl"
+                    className="bg-amber-500 hover:bg-amber-600 text-blue-900 font-bold shadow-xl transition-all duration-300"
                     href="/certificaciones"
                   >
                     Ver Todas las Certificaciones
-                  </Button>
+                  </Button> */}
                   <Button 
                     variant="outline"
                     size="lg"
-                    className="border-2 font-semibold"
-                    style={{
-                      borderColor: '#fbbf24',
-                      color: '#fbbf24'
-                    }}
+                    className="border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-blue-900 font-semibold transition-all duration-300"
                     href="/contacto"
                   >
                     💬 Hablar con Asesor

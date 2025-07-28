@@ -138,13 +138,13 @@ const HeroSlider = () => {
             {/* Botones */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
-                className="px-8 py-4 bg-white text-gray-900 hover:bg-gray-100 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 rounded-lg text-lg"
+                className="px-8 py-4 bg-white text-blue-900 hover:bg-gray-100 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 rounded-lg text-lg"
                 onClick={() => window.open(currentCert.enrollLink, '_blank')}
               >
                 ¡Inscríbete YA!
               </button>
               <button 
-                className="px-8 py-4 border-2 border-white border-opacity-50 text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm rounded-lg font-semibold transition-all duration-300 text-lg"
+                className="px-8 py-4 border-2 border-white border-opacity-50 text-white hover:bg-blue-900 hover:text-gray-900 backdrop-blur-sm rounded-lg font-semibold transition-all duration-300 text-lg"
                 onClick={() => window.open(currentCert.infoLink, '_blank')}
               >
                 Más información

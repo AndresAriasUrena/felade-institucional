@@ -53,8 +53,8 @@ const Footer = () => {
     { code: 'HN', flag: '🇭🇳', name: 'Honduras' },
     { code: 'PA', flag: '🇵🇦', name: 'Panamá' },
     { code: 'CR', flag: '🇨🇷', name: 'Costa Rica' },
-    { code: 'RU', flag: '🇷🇺', name: 'Rusia' },
-    { code: 'TW', flag: '🇹🇼', name: 'Taiwán' },
+    { code: 'CO', flag: '🇨🇴', name: 'Colombia' },
+    { code: 'CH', flag: '🇨🇱', name: 'Chile' },
     { code: 'BR', flag: '🇧🇷', name: 'Brasil' },
     { code: 'UY', flag: '🇺🇾', name: 'Uruguay' },
   ]

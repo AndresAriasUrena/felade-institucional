@@ -140,7 +140,7 @@ const CountryAlliances = () => {
             
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Nuestras Alianzas
-              <span className="block text-blue-600">Internacionales</span>
+              <span className="block text-blue-800">Internacionales</span>
             </h2>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
