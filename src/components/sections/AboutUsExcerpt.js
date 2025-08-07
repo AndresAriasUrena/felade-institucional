@@ -155,7 +155,7 @@ const AboutUsExcerptFull = () => {
                   <li>• 29 años de experiencia comprobada</li>
                   <li>• Presencia en 12 países latinoamericanos</li>
                   <li>• Más de 17,000 profesionales certificados</li>
-                  <li>• 45+ instituciones aliadas</li>
+                  <li>• 15+ instituciones aliadas</li>
                 </ul>
               </div>
 

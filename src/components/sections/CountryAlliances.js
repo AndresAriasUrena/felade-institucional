@@ -26,7 +26,7 @@ const CountryAlliances = () => {
     {
       region: 'Global',
       country: 'Internacional',
-      flag: '🌍',
+      flagCode: null,
       institutions: [
         {
           name: 'Universidad para la Paz',
@@ -41,7 +41,7 @@ const CountryAlliances = () => {
     {
       region: 'Costa Rica',
       country: 'Costa Rica', 
-      flag: '🇨🇷',
+      flagCode: 'cr',
       institutions: [
         {
           name: 'Colegio de Contadores Públicos',
@@ -56,7 +56,7 @@ const CountryAlliances = () => {
     {
       region: 'México',
       country: 'México',
-      flag: '🇲🇽', 
+      flagCode: 'mx', 
       institutions: [
         {
           name: 'Comisión Nacional Bancaria y de Valores',
@@ -71,7 +71,7 @@ const CountryAlliances = () => {
     {
       region: 'Perú',
       country: 'Perú',
-      flag: '🇵🇪',
+      flagCode: 'pe',
       institutions: [
         {
           name: 'Instituto de Auditores Internos',
@@ -86,7 +86,7 @@ const CountryAlliances = () => {
     {
       region: 'Panamá',
       country: 'Panamá',
-      flag: '🇵🇦',
+      flagCode: 'pa',
       institutions: [
         {
           name: 'Superintendencia de Sujetos No Financieros',
@@ -101,7 +101,7 @@ const CountryAlliances = () => {
     {
       region: 'República Dominicana',
       country: 'República Dominicana',
-      flag: '🇩🇴',
+      flagCode: 'do',
       institutions: [
         {
           name: 'Unidad de Análisis Financiero',
@@ -157,17 +157,19 @@ const CountryAlliances = () => {
               >
                 {/* Header con flag y región */}
                 <div className="bg-gradient-to-r from-blue-900 to-blue-700 p-6 text-white relative overflow-hidden">
-                  <div className="absolute top-0 right-0 text-8xl opacity-60">
-                    {alliance.flag}
-                  </div>
+                  {alliance.flagCode && (
+                    <div className="absolute top-2 right-2 w-12 h-8 opacity-30 pointer-events-none">
+                      <img
+                        src={`/images/flags/${alliance.flagCode}.svg`}
+                        alt={`Bandera de ${alliance.country}`}
+                        className="w-full h-full object-cover rounded"
+                      />
+                    </div>
+                  )}
                   <div className="relative z-10">
                     <div className="flex items-center space-x-3 mb-2">
-                      {/* <span className="text-2xl">{alliance.flag}</span> */}
                       <h3 className="text-xl font-bold">{alliance.region}</h3>
                     </div>
-                    {/* <p className="text-blue-100 text-sm opacity-90">
-                      {alliance.institutions.length} institución{alliance.institutions.length > 1 ? 'es' : ''} aliada{alliance.institutions.length > 1 ? 's' : ''}
-                    </p> */}
                   </div>
                 </div>
 

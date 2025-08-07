@@ -23,7 +23,7 @@ export default function Certificaciones() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">CIPLAD</h2>
-            <p className="text-lg text-gray-600">Certificación Internacional en Planificación Administrativa</p>
+            <p className="text-lg text-gray-600">Certificación Internacional en Prevención del Lavado de Activos y Delitos</p>
           </div>
           {/* Detalles de CIPLAD */}
         </div>
@@ -34,7 +34,7 @@ export default function Certificaciones() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">CIMAR</h2>
-            <p className="text-lg text-gray-600">Certificación Internacional en Marketing</p>
+            <p className="text-lg text-gray-600">Certificación Internacional en Matrices de Riesgo</p>
           </div>
           {/* Detalles de CIMAR */}
         </div>
@@ -45,7 +45,7 @@ export default function Certificaciones() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">CIBCA</h2>
-            <p className="text-lg text-gray-600">Certificación Internacional en Banca y Contaduría</p>
+            <p className="text-lg text-gray-600">Certificación Internacional en Blockchain, Compliance y Activos Digitales</p>
           </div>
           {/* Detalles de CIBCA */}
         </div>

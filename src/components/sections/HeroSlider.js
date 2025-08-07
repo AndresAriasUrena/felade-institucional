@@ -33,18 +33,18 @@ const HeroSlider = () => {
     switch(cert.id) {
       case 'ciplad':
         return {
-          subtitle: 'Certificación en Prevención del Lavado',
-          title: 'de Activos y Delitos (CIPLAD)'
+          subtitle: '',
+          title: 'Prevención del Lavado de Activos y Delitos (CIPLAD)'
         };
       case 'cimar':
         return {
-          subtitle: 'Certificación Internacional en',
+          subtitle: '',
           title: 'Matrices de Riesgo (CIMAR)'
         };
       case 'cibca':
         return {
-          subtitle: 'Certificación Internacional Blockchain,',
-          title: 'Compliance y Activos Digitales (CIBCA)'
+          subtitle: '',
+          title: 'Blockchain, Compliance y Activos Digitales (CIBCA)'
         };
       case 'wcf':
         return {
@@ -53,8 +53,8 @@ const HeroSlider = () => {
         };
       default:
         return {
-          subtitle: 'Certificación en Prevención del Lavado',
-          title: 'de Activos y Delitos (CIPLAD)'
+          subtitle: '',
+          title: 'Prevención del Lavado de Activos y Delitos (CIPLAD)'
         };
     }
   };

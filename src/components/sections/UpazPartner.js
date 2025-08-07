@@ -217,12 +217,12 @@ const UpazPartner = () => {
                 <FaExternalLinkAlt className="mr-1 text-[10px]" />
                 Visitar UPEACE
               </a>
-              <a
+              {/* <a
                 href="/sobre-nosotros"
                 className="inline-flex items-center justify-center border border-white text-white px-3 py-1.5 rounded text-xs font-semibold hover:bg-white hover:text-blue-600 transition-all duration-200 flex-1"
               >
                 Nuestra Historia
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

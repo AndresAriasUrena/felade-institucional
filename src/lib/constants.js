@@ -13,7 +13,7 @@ export const CERTIFICATIONS = [
     requirements: 'No',
     priceUSD: 1225,
     installments: '3 cuotas de USD 475.00',
-    enrollLink: 'https://ciplad.felade.com/inscripciones',
+    enrollLink: 'https://ciplad.felade.com/#inscripciones',
     infoLink: 'https://ciplad.felade.com',
     icon: '🛡️'
   },
@@ -28,7 +28,7 @@ export const CERTIFICATIONS = [
     requirements: 'No',
     priceUSD: 1225,
     installments: '3 cuotas de USD 475.00',
-    enrollLink: 'https://cimar.felade.com/inscripciones',
+    enrollLink: 'https://cimar.felade.com/#inscripciones',
     infoLink: 'https://cimar.felade.com',
     icon: '📊'
   },
@@ -43,7 +43,7 @@ export const CERTIFICATIONS = [
     requirements: 'No',
     priceUSD: 1225,
     installments: '3 cuotas de USD 475.00',
-    enrollLink: 'https://cibca.felade.com/inscripciones',
+    enrollLink: 'https://cibca.felade.com/#inscripciones',
     infoLink: 'https://cibca.felade.com',
     icon: '₿'
   },

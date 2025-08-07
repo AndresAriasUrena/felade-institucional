@@ -45,18 +45,18 @@ const Footer = () => {
 
   // Países con presencia regional
   const countries = [
-    { code: 'US', flag: '🇺🇸', name: 'Estados Unidos' },
-    { code: 'MX', flag: '🇲🇽', name: 'México' },
-    { code: 'DO', flag: '🇩🇴', name: 'República Dominicana' },
-    { code: 'GT', flag: '🇬🇹', name: 'Guatemala' },
-    { code: 'AR', flag: '🇦🇷', name: 'Argentina' },
-    { code: 'HN', flag: '🇭🇳', name: 'Honduras' },
-    { code: 'PA', flag: '🇵🇦', name: 'Panamá' },
-    { code: 'CR', flag: '🇨🇷', name: 'Costa Rica' },
-    { code: 'CO', flag: '🇨🇴', name: 'Colombia' },
-    { code: 'CH', flag: '🇨🇱', name: 'Chile' },
-    { code: 'BR', flag: '🇧🇷', name: 'Brasil' },
-    { code: 'UY', flag: '🇺🇾', name: 'Uruguay' },
+    { code: 'us', name: 'Estados Unidos' },
+    { code: 'mx', name: 'México' },
+    { code: 'do', name: 'República Dominicana' },
+    { code: 'gt', name: 'Guatemala' },
+    { code: 'ar', name: 'Argentina' },
+    { code: 'hn', name: 'Honduras' },
+    { code: 'pa', name: 'Panamá' },
+    { code: 'cr', name: 'Costa Rica' },
+    { code: 'co', name: 'Colombia' },
+    { code: 'cl', name: 'Chile' },
+    { code: 'br', name: 'Brasil' },
+    { code: 'uy', name: 'Uruguay' },
   ]
 
   return (
@@ -233,10 +233,12 @@ const Footer = () => {
                 key={country.code}
                 className="group relative"
               >
-                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                  <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
-                    {country.flag}
-                  </span>
+                <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer overflow-hidden">
+                  <img 
+                    src={`/images/flags/${country.code}.svg`}
+                    alt={`Bandera de ${country.name}`}
+                    className="w-8 h-6 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 
                 {/* Tooltip */}

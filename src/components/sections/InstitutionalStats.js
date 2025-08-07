@@ -138,7 +138,7 @@ const InstitutionalStats = () => {
               {/* Mini stats */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <div className="text-3xl font-bold text-secondary-400">45+</div>
+                  <div className="text-3xl font-bold text-secondary-400"></div>
                   <div className="text-sm text-primary-200">Instituciones Aliadas</div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">

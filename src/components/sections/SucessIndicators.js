@@ -120,7 +120,7 @@ const SuccessIndicators = () => {
     {
       year: '2005',
       icon: <FaStar className="w-6 h-6" />,
-      title: 'Fundación de FELADE',
+      title: 'Primer Congreso',
       description: 'Inicio de la misión educativa especializada',
       gradient: 'from-[#01174D] to-blue-600'
     },
@@ -142,7 +142,7 @@ const SuccessIndicators = () => {
       year: '2025',
       icon: <FaHandshake className="w-6 h-6" />,
       title: 'Red Internacional',
-      description: '45+ instituciones aliadas',
+      description: '15+ instituciones aliadas en el continente Americano.',
       gradient: 'from-[#01174D] to-blue-600'
     }
   ]
@@ -190,7 +190,7 @@ const SuccessIndicators = () => {
               <div className="mb-8 flex justify-center">
                 <div className="max-w-2xl w-full relative">
                   <Image
-                    src="/images/icons/Felade-Logo20aniversario.png"
+                    src="/images/icons/10-aniversario.png"
                     alt="FELADE 20 Aniversario - Fundación para el Estudio del Lavado de Activos y Delitos"
                     width={600}
                     height={200}
@@ -201,7 +201,7 @@ const SuccessIndicators = () => {
               </div>
               
               <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-                Más de dos décadas liderando la educación especializada en prevención de lavado de activos
+                Más de una décadaa liderando la educación especializada en prevención de lavado de activos
               </p>
             </div>
 
@@ -344,7 +344,7 @@ const SuccessIndicators = () => {
               {/* Stats compactos - 2 columnas */}
               <div className="lg:col-span-2 grid grid-cols-2 gap-6">
                 <div className="text-center bg-gradient-to-br from-blue-500/30 to-blue-600/30 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20">
-                  <div className="text-4xl font-black mb-2">45+</div>
+                  <div className="text-4xl font-black mb-2">15+</div>
                   <div className="text-sm opacity-90">Instituciones Aliadas</div>
                   <div className="mt-2">
                     <FaUniversity className="text-2xl mx-auto opacity-80" />
