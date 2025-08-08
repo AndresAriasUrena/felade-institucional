@@ -55,7 +55,11 @@ const MainCertifications = () => {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section 
+      id="certificaciones" 
+      data-section="certificaciones"
+      className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden certificaciones-section"
+    >
       {/* Background decorativo */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div 
@@ -257,13 +261,6 @@ const MainCertifications = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  {/* <Button 
-                    size="lg"
-                    className="bg-amber-500 hover:bg-amber-600 text-blue-900 font-bold shadow-xl transition-all duration-300"
-                    href="/certificaciones"
-                  >
-                    Ver Todas las Certificaciones
-                  </Button> */}
                   <Button 
                     variant="outline"
                     size="lg"

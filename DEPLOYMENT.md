@@ -117,9 +117,9 @@ out/
 - [ ] Velocidad de carga aceptable
 
 ### Enlaces Importantes a Verificar
-- `https://ciplad.felade.com/inscripciones`
-- `https://cimar.felade.com/inscripciones`
-- `https://cibca.felade.com/inscripciones`
+- `https://ciplad.felade.com/#inscripciones`
+- `https://cimar.felade.com/#inscripciones`
+- `https://cibca.felade.com/#inscripciones`
 - `https://worldcomplianceforum.com`
 - `https://www.upeace.org`
 

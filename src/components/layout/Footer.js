@@ -235,7 +235,7 @@ const Footer = () => {
               >
                 <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 cursor-pointer overflow-hidden">
                   <img 
-                    src={`/images/flags/${country.code}.svg`}
+                    src={`https://flagcdn.com/24x18/${country.code}.png`}
                     alt={`Bandera de ${country.name}`}
                     className="w-8 h-6 object-cover group-hover:scale-110 transition-transform duration-300"
                   />

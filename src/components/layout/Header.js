@@ -18,6 +18,27 @@ const Header = () => {
     setIsServicesOpen(false)
   }
 
+  // Función para hacer scroll a la sección de certificaciones
+  const scrollToCertifications = (e) => {
+    e.preventDefault()
+    closeMenu()
+    
+    // Buscar el elemento de certificaciones por ID o clase
+    const certificationsSection = document.querySelector('#certificaciones') || 
+                                 document.querySelector('[data-section="certificaciones"]') ||
+                                 document.querySelector('.certificaciones-section')
+    
+    if (certificationsSection) {
+      certificationsSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    } else {
+      // Si estamos en otra página, navegar al home y luego hacer scroll
+      window.location.href = '/#certificaciones'
+    }
+  }
+
   const navigationItems = [
     { name: 'Inicio', href: '/' },
     { name: 'Sobre Nosotros', href: '/sobre-nosotros' },
@@ -26,16 +47,30 @@ const Header = () => {
       href: '/servicios',
       hasDropdown: true,
       dropdownItems: [
-        { name: 'Todos los Servicios', href: '/servicios' },
-        { name: 'Certificaciones', href: '/certificaciones' },
-        { name: 'CIPLAD', href: '/certificaciones#ciplad' },
-        { name: 'CIMAR', href: '/certificaciones#cimar' },
-        { name: 'CIBCA', href: '/certificaciones#cibca' },
+        { 
+          name: 'Certificaciones', 
+          href: '#certificaciones',
+          isScroll: true,
+          onClick: scrollToCertifications
+        },
+        { 
+          name: 'CIPLAD', 
+          href: 'https://ciplad.felade.com',
+          isExternal: true
+        },
+        { 
+          name: 'CIMAR', 
+          href: 'https://cimar.felade.com',
+          isExternal: true
+        },
+        { 
+          name: 'CIBCA', 
+          href: 'https://cibca.felade.com',
+          isExternal: true
+        },
       ]
-    },
-    { name: 'Países', href: '/paises' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Contacto', href: '/contacto' },
+    }
+    // Removed: Países, FAQ, Contacto
   ]
 
   return (
@@ -44,7 +79,7 @@ const Header = () => {
       style={{
         background: 'linear-gradient(135deg, #01174D 0%, #1e3a8a 100%)',
         opacity: 1,
-        zIndex: 9999 // Z-index más alto que el hero
+        zIndex: 9999
       }}
     >
       <div className="container mx-auto px-4">
@@ -83,18 +118,38 @@ const Header = () => {
                       className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 transition-all duration-200 ${
                         isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                       }`}
-                      style={{ zIndex: 10000 }} // Z-index aún más alto para dropdown
+                      style={{ zIndex: 10000 }}
                       onMouseEnter={() => setIsServicesOpen(true)}
                       onMouseLeave={() => setIsServicesOpen(false)}
                     >
                       {item.dropdownItems.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
-                        >
-                          {dropdownItem.name}
-                        </Link>
+                        dropdownItem.isScroll ? (
+                          <button
+                            key={dropdownItem.name}
+                            onClick={dropdownItem.onClick}
+                            className="w-full text-left block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                          >
+                            {dropdownItem.name}
+                          </button>
+                        ) : dropdownItem.isExternal ? (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                          >
+                            {dropdownItem.name} ↗
+                          </a>
+                        ) : (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>
@@ -122,7 +177,7 @@ const Header = () => {
           <button
             onClick={toggleMenu}
             className="lg:hidden p-2 text-gray-200 hover:text-secondary-400 transition-colors"
-            style={{ zIndex: 10001 }} // Z-index alto para mobile button
+            style={{ zIndex: 10001 }}
           >
             {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
@@ -150,14 +205,38 @@ const Header = () => {
                       isServicesOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                     }`}>
                       {item.dropdownItems.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          onClick={closeMenu}
-                          className="block px-4 py-2 text-gray-300 hover:bg-primary-800 hover:text-secondary-400 rounded-lg transition-colors"
-                        >
-                          {dropdownItem.name}
-                        </Link>
+                        dropdownItem.isScroll ? (
+                          <button
+                            key={dropdownItem.name}
+                            onClick={(e) => {
+                              dropdownItem.onClick(e)
+                              closeMenu()
+                            }}
+                            className="w-full text-left block px-4 py-2 text-gray-300 hover:bg-primary-800 hover:text-secondary-400 rounded-lg transition-colors"
+                          >
+                            {dropdownItem.name}
+                          </button>
+                        ) : dropdownItem.isExternal ? (
+                          <a
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={closeMenu}
+                            className="block px-4 py-2 text-gray-300 hover:bg-primary-800 hover:text-secondary-400 rounded-lg transition-colors"
+                          >
+                            {dropdownItem.name} ↗
+                          </a>
+                        ) : (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            onClick={closeMenu}
+                            className="block px-4 py-2 text-gray-300 hover:bg-primary-800 hover:text-secondary-400 rounded-lg transition-colors"
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>

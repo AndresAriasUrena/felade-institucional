@@ -160,7 +160,7 @@ const CountryAlliances = () => {
                   {alliance.flagCode && (
                     <div className="absolute top-2 right-2 w-12 h-8 opacity-30 pointer-events-none">
                       <img
-                        src={`/images/flags/${alliance.flagCode}.svg`}
+                        src={`https://flagcdn.com/48x36/${alliance.flagCode}.png`}
                         alt={`Bandera de ${alliance.country}`}
                         className="w-full h-full object-cover rounded"
                       />
